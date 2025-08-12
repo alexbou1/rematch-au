@@ -8,20 +8,20 @@ from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
-LOG_LEVEL = os.getenv("BOT_LOG_LEVEL", logging.INFO)
+LOG_LEVEL = os.getenv("LOG_LEVEL", logging.INFO)
 LOG_FORMAT = "%(asctime)s [%(levelname)s] %(name)s :: %(message)s"
 MANUAL_RUN = signal.getsignal(signal.SIGHUP) == signal.SIG_DFL
 
 
-# ------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Code inspired from https://stackoverflow.com/a/6290946
-# ------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class MyFormatter(logging.Formatter):
     """Custom formatter to modify logging timestamp format."""
 
     converter = datetime.fromtimestamp
 
-    # --------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     def formatTime(self, record: logging.LogRecord, datefmt: str = None) -> str:
         """
         Handle formatting time for log output.
@@ -41,7 +41,7 @@ class MyFormatter(logging.Formatter):
         return logger_format
 
 
-# ------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 def setup_logging(
     name: str = __name__,
     level: int = LOG_LEVEL,

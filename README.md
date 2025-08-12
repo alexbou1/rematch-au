@@ -1,27 +1,31 @@
-## aus-address-matcher
+## rematch-au
+
+<p align="left">
+  <img style="width: 40%" src="assets/rematch.svg" />
+</p>
 
 > [!NOTE]  
 > This repo is still a work in progress and should be treated like a proof of concept.
 
-A simple address matcher for free form text inputs matching with addresses in the Australian GNAF database. 
-
+Australian address matching tool that compares input addresses to the
+[GNAF public dataset](https://data.gov.au/data/dataset/geocoded-national-address-file-g-naf).
 ### Get started
 
 #### Setup:
 ```shell
 python3 -m venv venv
 . venv/bin/activate
-python3 -m pip install -r requirements.txt
-python3 src/initialise_db.py  # ~5-10 mins
+python3 -m pip install .
+rematch-au init-db  # ~5-10 mins
 ```
 
-#### Running:
-Runs sample addresses from `src/test/data/sample_addresses.txt`
+To run a particular address
 ```shell
-python3 src/address_matcher.py
+rematch-au match -a '245 HIGH STREET PRAHRAN VIC 3181' -s 'PRAHRAN' -j 'VIC' -p '3181'
 ```
 
-Or to run a particular address
-```shell
-python3 src/address_matcher.py "245 HIGH STREET PRAHRAN VIC 3181"
-```
+### Credits
+Special thanks to Murray for his guidance and inspiration on packaging, and for
+providing key tools that made testing and development so much smoother.
+
+Also to [DuckDB](https://duckdb.org/) for the awesome work they are doing.

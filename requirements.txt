@@ -1,3 +1,4 @@
-alive_progress
 duckdb
-python-levenshtein
+rapidfuzz
+requests
+rich

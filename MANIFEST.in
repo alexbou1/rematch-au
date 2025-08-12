@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include requirements*.txt
+include */VERSION
+include */sql/*.sql
+global-exclude .DS_Store .env

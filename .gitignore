@@ -1,4 +1,8 @@
+build/
 logs/
+*.egg-info/
 *.db
 *.zip
 *.gz
+*.html
+*.txt

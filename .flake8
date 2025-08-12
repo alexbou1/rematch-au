@@ -1,5 +1,5 @@
 [flake8]
-application-import-names = src, common
+application-import-names = rematch_au
 import-order-style = pycharm
 
 exclude =
